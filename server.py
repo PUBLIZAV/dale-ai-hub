@@ -608,6 +608,12 @@ class HubRequestHandler(http.server.SimpleHTTPRequestHandler):
         if parsed.path == "/api/posts/update":
             posts = load_json(POSTS_DB_PATH, [])
             post_id = payload.get("post_id")
+            if payload.get("status") == "published":
+                self.send_json({
+                    "ok": False,
+                    "error": "Bloqueado: Durante la prueba piloto nada se marca como publicado ni se envía a Meta."
+                }, 403)
+                return
             for p in posts:
                 if p["id"] == post_id:
                     for field in ["status", "copy", "hook", "visual_prompt", "scheduled_for"]:
@@ -628,42 +634,13 @@ class HubRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         if parsed.path == "/api/publish-meta":
-            posts = load_json(POSTS_DB_PATH, [])
-            secrets = load_json(SECRETS_PATH, {})
-            post_id = payload.get("post_id")
-            post = next((p for p in posts if p["id"] == post_id), None)
-            if not post:
-                self.send_json({"error": "Post no encontrado"}, 404)
-                return
-
-            meta_token = secrets.get("META_ACCESS_TOKEN") or os.environ.get("META_ACCESS_TOKEN")
-            asset_id = post["asset_id"]
-            if meta_token:
-                try:
-                    fb_api_url = f"https://graph.facebook.com/v21.0/{asset_id}/feed"
-                    req = urllib.request.Request(
-                        fb_api_url,
-                        data=urllib.parse.urlencode({
-                            "message": post["copy"],
-                            "access_token": meta_token
-                        }).encode("utf-8"),
-                        headers={"Content-Type": "application/x-www-form-urlencoded"}
-                    )
-                    with urllib.request.urlopen(req, timeout=20) as resp:
-                        res_data = json.loads(resp.read().decode("utf-8"))
-                        post["status"] = "published"
-                        post["meta_post_id"] = res_data.get("id")
-                        save_json(POSTS_DB_PATH, posts)
-                        self.send_json({"ok": True, "mode": "graph_api", "meta_post_id": res_data.get("id"), "post": post})
-                        return
-                except Exception as ex:
-                    self.send_json({
-                        "ok": False,
-                        "mode": "suite_fallback",
-                        "error": str(ex),
-                        "suite_url": f"https://business.facebook.com/latest/home?asset_id={asset_id}"
-                    })
-                    return
+            # Parche de seguridad: bloqueo total de publicación y gasto hacia Meta durante el piloto.
+            self.send_json({
+                "ok": False,
+                "locked": True,
+                "error": "Publicador bloqueado: Durante el piloto nada se envía a Meta ni se activa pauta."
+            }, 403)
+            return
 
             self.send_json({
                 "ok": True,
