@@ -112,6 +112,16 @@
       "badge": "Multimodal & Reels",
       "status": "ready",
       "specialty": "Guiones segundo a segundo para Reels/TikTok, dirección visual, prompts fotográficos y coordinación general del hub."
+    },
+    {
+      "id": "muse",
+      "name": "Muse (Meta AI & Ads Engine)",
+      "model": "meta-muse-ads-v1",
+      "role": "Publicidad Pagada (Meta Ads), Segmentación Advantage+, Data ROAS/CTR y Programación Nativa en Business Suite",
+      "color": "#0866ff",
+      "badge": "Meta Ads & Data",
+      "status": "ready",
+      "specialty": "Arquitectura de pauta pagada en Cuenta Publicitaria 345341053347300, segmentación por radio/intereses, optimización de presupuesto, horarios pico del algoritmo y programación directa en Meta Business Suite."
     }
   ],
   "clients": [

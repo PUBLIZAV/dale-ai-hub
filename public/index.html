@@ -14,7 +14,7 @@
         <div class="brand-logo">D+</div>
         <div class="brand-title">
           <h1>DALE+ AI Hub</h1>
-          <p>48 Cuentas · 5 IAs · Agentes</p>
+          <p>48 Cuentas · 6 IAs · Meta Ads</p>
         </div>
       </div>
 
@@ -25,11 +25,11 @@
         </button>
         <button class="nav-btn" data-tab="studio">
           <span>✨ Estudio Multi-IA</span>
-          <span class="nav-badge">5 IAs</span>
+          <span class="nav-badge">6 IAs</span>
         </button>
         <button class="nav-btn" data-tab="queue">
           <span>📅 Cola & Publicación</span>
-          <span class="nav-badge" id="nav-count-posts">6</span>
+          <span class="nav-badge" id="nav-count-posts">8</span>
         </button>
         <button class="nav-btn" data-tab="ai-hub">
           <span>🧠 Cerebro IA & Meta Apps</span>
@@ -38,13 +38,14 @@
       </nav>
 
       <div class="ai-status-box">
-        <div class="ai-status-title">Consejo de IAs Conectadas</div>
+        <div class="ai-status-title">Consejo de 6 IAs Conectadas</div>
         <div class="ai-pill-list">
           <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-claude)"></span>Claude</span>
           <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-chatgpt)"></span>ChatGPT</span>
           <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-kimi)"></span>Kimi</span>
           <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-manus)"></span>Manus</span>
           <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-gemini)"></span>Gemini</span>
+          <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-muse)"></span>Muse (Meta)</span>
         </div>
         <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">
           Sincronizado con Firefox · Portfolio <code>764586389025151</code>
@@ -88,7 +89,7 @@
         <div class="kpi-card">
           <span class="kpi-label">Agentes Especializados</span>
           <span class="kpi-value" style="color: var(--accent-emerald);">48 Activos</span>
-          <span class="kpi-sub">Claude · ChatGPT · Kimi · Manus · Gemini</span>
+          <span class="kpi-sub">Claude · ChatGPT · Kimi · Manus · Gemini · Muse</span>
         </div>
       </section>
 
@@ -133,12 +134,13 @@
               <div class="form-group">
                 <label for="studio-ai-select">2. Motor de IA / Modo de Trabajo</label>
                 <select id="studio-ai-select" class="form-control">
-                  <option value="council">🌟 Consejo de las 5 IAs (Claude + ChatGPT + Kimi + Manus + Gemini)</option>
+                  <option value="council">🌟 Consejo de las 6 IAs (Claude + ChatGPT + Kimi + Manus + Gemini + Muse)</option>
+                  <option value="muse">♾️ Muse de Meta (Publicidad Pagada, Data ROAS, Segmentación & Programación)</option>
                   <option value="claude">🟠 Claude (Storytelling, Legal, Salud & Cívico)</option>
-                  <option value="chatgpt">🟢 ChatGPT (Ventas Directas, Promos & Meta Ads)</option>
+                  <option value="chatgpt">🟢 ChatGPT (Ventas Directas, Promos & Hooks 15%)</option>
                   <option value="kimi">🟣 Kimi (Investigación Local, Datos & Noticias)</option>
                   <option value="manus">🟡 Manus (Ejecución Autónoma & Secuencias)</option>
-                  <option value="gemini">🔵 Gemini (Guion de Reels, Dirección Visual & Multimodal)</option>
+                  <option value="gemini">🔵 Gemini (Guion de Reels, Dirección Visual 85/15 & Multimodal)</option>
                 </select>
               </div>
               <div class="form-group">
@@ -167,7 +169,7 @@
 
           <!-- Live Preview Panel -->
           <div class="panel" id="studio-preview-panel">
-            <h3>👁️ Vista Previa & Aportación de las 5 IAs</h3>
+            <h3>👁️ Vista Previa, Pauta Pagada (Muse) & Aportación de las 6 IAs</h3>
             <div id="studio-preview-content" style="display: flex; flex-direction: column; gap: 14px;">
               <p style="color: var(--text-secondary); font-size: 13.5px;">
                 Selecciona un cliente y haz clic en <strong>"Generar Publicación con Agente"</strong> para ver la propuesta completa de copy, guion visual y desglose del Consejo de las 5 IAs.
@@ -198,7 +200,7 @@
       <section id="tab-ai-hub" class="tab-view hidden">
         <div class="studio-grid">
           <div class="panel">
-            <h3>🧠 Arquitectura de tus 5 IAs</h3>
+            <h3>🧠 Arquitectura de tus 6 IAs (Con Muse de Meta)</h3>
             <p style="font-size: 13px; color: var(--text-secondary);">
               Cada IA tiene un rol especializado dentro de tu agencia y colabora con los 48 agentes de clientes.
             </p>
@@ -235,12 +237,14 @@
             <option value="kimi">Kimi (Moonshot AI)</option>
             <option value="manus">Manus (Autónomo)</option>
             <option value="gemini">Gemini (Google Core)</option>
+            <option value="muse">Muse (Meta AI & Ads)</option>
           </select>
         </div>
         <div class="form-group">
           <label for="edit-agent-secondary-ai">IA de Apoyo / Co-Piloto</label>
           <select id="edit-agent-secondary-ai" class="form-control">
             <option value="gemini">Gemini (Google Core)</option>
+            <option value="muse">Muse (Meta AI & Ads)</option>
             <option value="claude">Claude (Anthropic)</option>
             <option value="chatgpt">ChatGPT (OpenAI)</option>
             <option value="kimi">Kimi (Moonshot AI)</option>

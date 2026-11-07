@@ -386,6 +386,10 @@ def synthesize_multi_agent_post(client, topic, fmt, selected_ai, secrets):
         "gemini": {
             "hook_prefix": f"🎬 Imagina vivir la experiencia de {name}: {topic_clean} como nunca antes lo habías visto en {loc}.",
             "style_note": "Dirección creativa visual, ritmo dinámico para Reels y narrativa multimodal por Gemini."
+        },
+        "muse": {
+            "hook_prefix": f"📣 [Pauta Optimizada Meta Ads · {loc}] {name}: {topic_clean} con beneficio directo hoy.",
+            "style_note": "Arquitectura de pauta pagada (Meta Ads), segmentación Advantage+, horarios de máximo CTR y programación por Muse de Meta."
         }
     }
 
@@ -417,12 +421,50 @@ def synthesize_multi_agent_post(client, topic, fmt, selected_ai, secrets):
         f"• LOGO DISCRETO: Logo de {name} pequeño en la esquina inferior derecha (5-7% de escala, nunca protagonista)."
     )
 
+    # Plan de Pauta Pagada & Data generado por Muse de Meta
+    is_dental = "Salud" in cat or "Dental" in cat or "Ortodoncia" in name or "DDS" in name
+    is_food = "Gastronom" in cat or "Restaurante" in cat or "Michoacana" in name or "Grill" in name
+    is_real_estate = "Inmobiliaria" in cat or "Real Estate" in name
+    if is_dental:
+        ads_objective = "Clientes Potenciales (Mensajes a WhatsApp / Inbox Dental)"
+        ads_budget = "$8 - $15 USD / día"
+        ads_Window = "Mar-Jue 10:00 AM y 7:00 PM (Pico de agendamiento)"
+        ads_audience = f"Radio 15 mi en {loc} + Cruce Fronterizo (Calexico/Imperial Valley) · Intereses: Estética dental, Invisalign, Salud bucal (24-58 años)"
+    elif is_food:
+        ads_objective = "Interacción / Tráfico en Sucursal & Pedidos por Mensaje"
+        ads_budget = "$5 - $12 USD / día (Impulso en horas de antojo)"
+        ads_Window = "Jue-Dom 1:30 PM - 8:30 PM (Pico de calor/antojo)"
+        ads_audience = f"Radio 5-8 mi alrededor de {loc} · Advantage+ Food & Antojos Locales (18-50 años)"
+    elif is_real_estate:
+        ads_objective = "Generación de Leads Calificados (Formulario Instantáneo + DM 'CASA')"
+        ads_budget = "$10 - $20 USD / día"
+        ads_Window = "Lun-Vie 12:30 PM y Dom 6:00 PM"
+        ads_audience = f"{loc} + Compradores en BC/California · Intereses: Crédito Infonavit, Inversión inmobiliaria, Hipotecas (26-60 años)"
+    else:
+        ads_objective = " Reconocimiento + Mensajes Directos (Click-to-WhatsApp / Messenger)"
+        ads_budget = "$6 - $12 USD / día"
+        ads_Window = "Lun-Vie 1:00 PM y 7:30 PM (Máximo CTR en Feed/Reels)"
+        ads_audience = f"Segmentación Abierta Advantage+ en {loc} (22-55 años) optimizada por conversión"
+
+    meta_ads_plan = {
+        "engine": "Muse de Meta",
+        "ad_account_id": "345341053347300",
+        "business_portfolio_id": "764586389025151",
+        "objective": ads_objective.strip(),
+        "daily_budget": ads_budget,
+        "optimal_schedule": ads_Window,
+        "targeting": ads_audience,
+        "placements": "Feed FB/IG (1:1 85/15) + Stories/Reels Advantage+ (El <15% de texto en imagen evita penalización de CPM en la subasta de Meta)",
+        "ads_manager_url": f"https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=345341053347300&business_id=764586389025151"
+    }
+
     council_notes = {
         "claude": f"Escribió el copy externo completo para no saturar la imagen (respetando el 15% de texto en arte).",
         "chatgpt": f"Sintetizó el titular visual en ≤3 palabras ('{short_headline}') + gancho de precio/promo.",
         "kimi": f"Analizó el contexto local de {loc} y los pilares {', '.join(pillars[:2])}.",
         "manus": f"Verificó la regla 85/15 (<10 palabras) + logo pequeño abajo a la derecha (Asset ID {client['asset_id']}).",
-        "gemini": f"Aplicó la plantilla '{layout_id}' con el logo discreto en esquina inferior derecha."
+        "gemini": f"Aplicó la plantilla '{layout_id}' con el logo discreto en esquina inferior derecha.",
+        "muse": f"Configuró pauta en Cuenta 345341053347300: {ads_objective.strip()} ({ads_budget}) · Ventana óptima: {ads_Window}."
     }
 
     platforms = ["facebook"]
@@ -446,6 +488,7 @@ def synthesize_multi_agent_post(client, topic, fmt, selected_ai, secrets):
         "hook": hook,
         "copy": copy_body,
         "visual_prompt": visual_prompt,
+        "meta_ads_plan": meta_ads_plan,
         "council_notes": council_notes
     }
     return new_post

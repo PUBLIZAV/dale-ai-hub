@@ -20,6 +20,7 @@
   --ai-kimi: #818cf8;
   --ai-manus: #f59e0b;
   --ai-gemini: #3b82f6;
+  --ai-muse: #0866ff;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -506,6 +507,7 @@ body {
 .ai-kimi { background: rgba(99, 102, 241, 0.18); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.4); }
 .ai-manus { background: rgba(245, 158, 11, 0.18); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.4); }
 .ai-gemini { background: rgba(59, 130, 246, 0.18); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.4); }
+.ai-muse { background: rgba(8, 102, 255, 0.22); color: #60a5fa; border: 1px solid rgba(8, 102, 255, 0.55); }
 
 .card-actions {
   display: flex;

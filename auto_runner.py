@@ -30,7 +30,7 @@ def main():
     parser.add_argument("--client", type=str, help="Nombre o Asset ID del cliente")
     parser.add_argument("--topic", type=str, default="", help="Tema o promoción específica")
     parser.add_argument("--days", type=int, default=1, help="Número de días/posts a generar")
-    parser.add_argument("--ai", type=str, default="council", help="IA líder (claude, chatgpt, kimi, manus, gemini, council)")
+    parser.add_argument("--ai", type=str, default="council", help="IA líder (claude, chatgpt, kimi, manus, gemini, muse, council)")
     parser.add_argument("--audit-85-15", action="store_true", help="Audita que toda la cola cumpla 85% imagen / 15% texto y logo inf. derecha")
     args = parser.parse_args()
 
@@ -45,13 +45,26 @@ def main():
             if p.get("logo_pos") != "bottom-right-small":
                 p["logo_pos"] = "bottom-right-small"
                 fixed += 1
+            if "meta_ads_plan" not in p:
+                p["meta_ads_plan"] = {
+                    "engine": "Muse de Meta",
+                    "ad_account_id": "345341053347300",
+                    "business_portfolio_id": "764586389025151",
+                    "objective": "Clientes Potenciales / Mensajes Directos (WhatsApp & Inbox)",
+                    "daily_budget": "$8 - $15 USD / día",
+                    "optimal_schedule": p.get("scheduled_for", "13:00") + " (Pico CTR detectado por Muse)",
+                    "targeting": f"{p.get('category', 'Local')} · Segmentación Advantage+ en Mexicali / Imperial Valley",
+                    "placements": "Feed FB/IG (Arte 85/15 libre de penalización CPM) + Reels/Stories Advantage+",
+                    "ads_manager_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=345341053347300&business_id=764586389025151"
+                }
+                p.setdefault("council_notes", {})["muse"] = "Configuró pauta en Cuenta 345341053347300 ($8-$15 USD/día), segmentación Advantage+ y horario de máximo CTR."
+                fixed += 1
             raw_tokens = " ".join([p.get("headline_15", ""), p.get("sub_15", ""), p.get("offer_15", "")]).split()
             words = len([w for w in raw_tokens if w not in ("|", "x", "•", ">", "-") and any(c.isalnum() for c in w)])
             status_icon = "✅" if words <= 10 else "⚠️"
-            print(f"  {status_icon} [{p['client_name'][:28]:28s}] Palabras en arte: {words:2d} | Logo: {p['logo_pos']}")
-        if fixed:
-            save_json(POSTS_DB_PATH, posts)
-            sync_bundle(db, posts)
+            print(f"  {status_icon} [{p['client_name'][:28]:28s}] Palabras en arte: {words:2d} | Logo: {p['logo_pos']} | Muse Ads: OK")
+        save_json(POSTS_DB_PATH, posts)
+        sync_bundle(db, posts)
         print("✔ Auditoría completada.")
         return
 

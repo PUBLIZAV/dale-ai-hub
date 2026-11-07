@@ -1,6 +1,6 @@
 # CLAUDE.md — Guía de Arquitectura y Edición Automática para Claude
 
-Este repositorio contiene **DALE+ AI Command Center**, el sistema multi-agente que administra las **48 cuentas de Facebook e Instagram** de Víctor Hugo Zavala Gallegos (Business Portfolio `764586389025151`) orquestando **5 motores de IA** (`Claude`, `ChatGPT`, `Kimi`, `Manus` y `Gemini`).
+Este repositorio contiene **DALE+ AI Command Center**, el sistema multi-agente que administra las **48 cuentas de Facebook e Instagram** de Víctor Hugo Zavala Gallegos (Business Portfolio `764586389025151`, Cuenta Publicitaria `345341053347300`) orquestando **6 motores de IA** (`Claude`, `ChatGPT`, `Kimi`, `Manus`, `Gemini` y `Muse de Meta`).
 
 ## 1. Reglas de Diseño Inquebrantables (Sistema Minimalista 85/15)
 Cuando edites plantillas, generes prompts o modifiques agentes en este repositorio, **SIEMPRE** debes respetar estas 3 directrices del director creativo:

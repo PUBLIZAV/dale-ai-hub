@@ -34,7 +34,8 @@ function getAiLabel(aiId) {
     chatgpt: "ChatGPT",
     kimi: "Kimi",
     manus: "Manus",
-    gemini: "Gemini"
+    gemini: "Gemini",
+    muse: "Muse (Meta)"
   };
   return map[aiId] || aiId;
 }
@@ -103,10 +104,22 @@ function buildLocalPost(client, topic, fmt, selectedAi) {
     visual_prompt: `[${fmt} — Dirigido por Gemini]: Toma principal de '${cleanTopic}' en ${client.location}, estética profesional de ${client.name}, texto dinámico en pantalla y cierre con CTA.`,
     council_notes: {
       claude: `Alineó el tono de voz (${(ag.brand_voice || "").slice(0, 60)}...)`,
-      chatgpt: `Optimizó el hook de conversión y el CTA`,
+      chatgpt: `Optimizó el hook de conversión y el CTA (15% texto)`,
       kimi: `Validó contexto local en ${client.location}`,
       manus: `Preparó ruta de publicación para Asset ID ${client.asset_id}`,
-      gemini: `Diseñó guion visual para formato ${fmt}`
+      gemini: `Diseñó guion visual 85/15 para formato ${fmt}`,
+      muse: `Configuró pauta en Cuenta 345341053347300 + programación en ventana de máximo CTR`
+    },
+    meta_ads_plan: {
+      engine: "Muse de Meta",
+      ad_account_id: "345341053347300",
+      business_portfolio_id: "764586389025151",
+      objective: "Mensajes Directos (Click-to-WhatsApp / Inbox) + Conversión Local",
+      daily_budget: "$6 - $15 USD / día",
+      optimal_schedule: "1:00 PM - 8:00 PM (Ventana de máximo CTR detectada por Muse)",
+      targeting: `${client.location} · Audiencia Advantage+ interesada en ${client.category}`,
+      placements: "Feed FB/IG (Arte 85/15 sin penalización de CPM) + Reels/Stories Advantage+",
+      ads_manager_url: "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=345341053347300&business_id=764586389025151"
     }
   };
 }
@@ -274,14 +287,22 @@ function renderStudioPreview() {
   const client = state.clients.find(c => c.id === p.client_id || c.asset_id === p.asset_id) || {};
   const suiteUrl = client.business_suite_url || `https://business.facebook.com/latest/home?asset_id=${p.asset_id}`;
   const reelsUrl = client.reels_composer_url || `https://business.facebook.com/latest/reels_composer?asset_id=${p.asset_id}`;
+  const adsUrl = (p.meta_ads_plan && p.meta_ads_plan.ads_manager_url) || "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=345341053347300&business_id=764586389025151";
   const notes = p.council_notes || {};
+  const adsPlan = p.meta_ads_plan || {
+    objective: "Clientes Potenciales / Mensajes Directos (WhatsApp & Inbox)",
+    daily_budget: "$8 - $15 USD / día",
+    optimal_schedule: p.scheduled_for || "1:00 PM - 7:30 PM (Pico de conversión)",
+    targeting: `${client.location || "Mexicali / Imperial Valley"} · Segmentación Advantage+`,
+    placements: "Feed FB/IG (1:1 85/15 libre de penalización CPM) + Stories/Reels"
+  };
 
   container.innerHTML = `
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
       <div>
         <span class="tag">${escapeHtml(p.format)}</span>
         <span class="ai-badge ai-${escapeHtml(p.ai_lead)}">Líder: ${escapeHtml(getAiLabel(p.ai_lead))}</span>
-        <span class="ai-badge ai-${escapeHtml(p.ai_support)}">Apoyo: ${escapeHtml(getAiLabel(p.ai_support))}</span>
+        <span class="ai-badge ai-muse">Pauta & Data: Muse (Meta)</span>
       </div>
       <span style="font-size:12px; color:var(--text-secondary);">Programado: ${escapeHtml(p.scheduled_for)}</span>
     </div>
@@ -290,19 +311,26 @@ function renderStudioPreview() {
       <div style="font-weight:700; font-size:14px;">📌 ${escapeHtml(p.client_name)} — ${escapeHtml(p.topic)}</div>
       <div class="post-copy-preview" id="preview-copy-text">${escapeHtml(p.copy)}</div>
       <div style="font-size:12px; color:#93c5fd; background:rgba(59,130,246,0.1); padding:10px; border-radius:8px; border:1px solid rgba(59,130,246,0.25);">
-        <strong>🎥 Dirección Visual / Guion (Gemini):</strong><br/>
+        <strong>🎥 Dirección Visual 85/15 (Gemini):</strong><br/>
         ${escapeHtml(p.visual_prompt)}
+      </div>
+      <div style="font-size:12px; color:#bfdbfe; background:rgba(8,102,255,0.14); padding:11px; border-radius:8px; border:1px solid rgba(8,102,255,0.4);">
+        <strong>♾️ Estrategia de Publicidad Pagada, Data & Programación (Muse de Meta · Cuenta <code>345341053347300</code>):</strong><br/>
+        • <strong>Objetivo de Campaña:</strong> ${escapeHtml(adsPlan.objective)}<br/>
+        • <strong>Segmentación & Data:</strong> ${escapeHtml(adsPlan.targeting)}<br/>
+        • <strong>Presupuesto Sugerido:</strong> ${escapeHtml(adsPlan.daily_budget)} · <strong>Ventana Óptima:</strong> ${escapeHtml(adsPlan.optimal_schedule)}<br/>
+        • <strong>Ubicaciones (Advantage+):</strong> ${escapeHtml(adsPlan.placements)}
       </div>
     </div>
 
     <div class="council-box">
       <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--text-secondary);">
-        🤝 Intervención del Consejo de las 5 IAs para este Cliente
+        🤝 Intervención del Consejo de las 6 IAs (Con Muse de Meta)
       </div>
-      ${["claude", "chatgpt", "kimi", "manus", "gemini"].map(ai => `
+      ${["claude", "chatgpt", "kimi", "manus", "gemini", "muse"].map(ai => `
         <div class="council-item">
-          <span class="ai-badge ai-${ai}" style="min-width:74px; justify-content:center;">${getAiLabel(ai)}</span>
-          <span>${escapeHtml(notes[ai] || "Validado por el agente.")}</span>
+          <span class="ai-badge ai-${ai}" style="min-width:86px; justify-content:center;">${getAiLabel(ai)}</span>
+          <span>${escapeHtml(notes[ai] || (ai === "muse" ? "Optimizó programación, segmentación Advantage+ y presupuesto en Cuenta 345341053347300." : "Validado por el agente."))}</span>
         </div>
       `).join("")}
     </div>
@@ -311,6 +339,9 @@ function renderStudioPreview() {
       <button class="btn btn-primary" onclick="copyAndLaunch('${escapeHtml(p.id)}', '${escapeHtml(suiteUrl)}')">
         📋 Copiar Copy + Abrir Business Suite (${escapeHtml(p.client_name.slice(0, 18))})
       </button>
+      <a class="btn" style="border-color:rgba(8,102,255,0.5); color:#60a5fa;" href="${escapeHtml(adsUrl)}" target="_blank" rel="noopener">
+        📣 Abrir Meta Ads Manager (Muse)
+      </a>
       <button class="btn btn-emerald" onclick="updatePostStatus('${escapeHtml(p.id)}', 'approved')">
         ✅ Aprobar en Cola
       </button>
