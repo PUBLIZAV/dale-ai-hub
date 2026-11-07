@@ -1,0 +1,10 @@
+[build]
+  publish = "public"
+  command = "echo 'DALE+ AI Hub static bundle ready'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Cache-Control = "public, max-age=0, must-revalidate"
