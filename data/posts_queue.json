@@ -1,0 +1,263 @@
+[
+  {
+    "id": "post_w1",
+    "client_id": "client_193905248038924",
+    "asset_id": "193905248038924",
+    "client_name": "Dr Mariano Garcia ,Ortodoncia y Odontología",
+    "category": "Salud / Odontología y Ortodoncia",
+    "platforms": [
+      "facebook"
+    ],
+    "format": "Arte 85/15 (Split Clínico) + Copy",
+    "layout": "split_clean",
+    "status": "approved",
+    "scheduled_for": "2026-10-28 12:00",
+    "ai_lead": "claude",
+    "ai_support": "gemini",
+    "topic": "Promoción de Resinas Estéticas en una sola cita",
+    "headline_15": "Resinas",
+    "sub_15": "Sonríe con confianza",
+    "offer_15": "1 x $400 | 3 x $900",
+    "cta_15": "AGENDA POR WHATSAPP >",
+    "logo_pos": "bottom-right-small",
+    "hook": "🦷✨ Recupera la estética natural de tu sonrisa en una sola cita con nuestras Resinas de Alta Estética.",
+    "copy": "🦷✨ Recupera la estética natural de tu sonrisa en una sola cita.\n\nEn el consultorio del Dr. Mariano García (Ortodoncia y Odontología) utilizamos resinas de última generación que igualan el tono exacto de tus dientes:\n\n✅ 1 Resina x $400\n✅ Paquete 3 Resinas x $900\n✅ Procedimiento estético, natural y sin dolor\n\n📲 Agenda tu cita hoy mismo por WhatsApp o mensaje directo.\n\n#DrMarianoGarcia #OrtodonciaMexicali #ResinasDentales #SonrieConConfianza #DentistaMexicali",
+    "visual_prompt": "[85% IMAGEN / 15% TEXTO · Logo pequeño inf. derecha] Fotografía clínica luminosa a la derecha de paciente joven sonriendo naturalmente; degradado blanco limpio a la izquierda con texto (Resinas / 1 x $400 - 3 x $900) y botón WhatsApp. Logo pequeño en esquina inferior derecha.",
+    "council_notes": {
+      "claude": "Redactó el copy clínico persuasivo dejando solo 7 palabras para la imagen.",
+      "chatgpt": "Estructuró la oferta escalonada (1 x $400 / 3 x $900) para duplicar el ticket promedio.",
+      "kimi": "Confirmó alta demanda de resinas y limpiezas en Mexicali.",
+      "manus": "Listo para publicar en Asset ID 193905248038924.",
+      "gemini": "Aplicó plantilla Split Clínico 85/15 con logo pequeño abajo a la derecha."
+    }
+  },
+  {
+    "id": "post_w2",
+    "client_id": "client_251061751421746",
+    "asset_id": "251061751421746",
+    "client_name": "La Michoacana Plus El Centro CA. Oficial",
+    "category": "Gastronomía y Postres",
+    "platforms": [
+      "facebook",
+      "instagram"
+    ],
+    "format": "Arte 85/15 (Split Promo Vibrante) + Reel",
+    "layout": "split_vibrant",
+    "status": "approved",
+    "scheduled_for": "2026-10-29 15:30",
+    "ai_lead": "chatgpt",
+    "ai_support": "gemini",
+    "topic": "Michelaguas: Compra una y lleva la 2da al 50%",
+    "headline_15": "Antojitos QUE ABRAZAN",
+    "sub_15": "COMPRA UNA LLEVA LA 2DA",
+    "offer_15": "AL 50%",
+    "cta_15": "MICHELAGUAS",
+    "logo_pos": "bottom-right-small",
+    "hook": "🍧🌶️ ¡Antojitos que abrazan en El Centro, CA! Hoy compra una Michelagua y llévate la 2da al 50% de descuento.",
+    "copy": "🍧🌶️ ¡Antojitos que abrazan en La Michoacana Plus El Centro, CA!\n\nVen por tu Michelagua bien escarchada con nuestro chamoy casero, tajín, fruta fresca recién picada y cacahuates:\n\n🔥 COMPRA UNA Y LLEVA LA 2DA AL 50%\n🍓 Sabores naturales 100% frescos\n🍦 Ambiente familiar en el corazón del Valle Imperial\n\n📍 Visítanos hoy en 1643 W. Main St, El Centro, CA. ¡Etiqueta a la persona con la que vas a compartir tu promo! 👇\n\n#LaMichoacanaPlus #ElCentroCA #ImperialValley #Michelaguas #AntojosMexicanos",
+    "visual_prompt": "[85% IMAGEN / 15% TEXTO · Logo pequeño inf. derecha] Fondo rosa mexicano con filigrana sutil; 85% a la derecha vaso gigante de Michelagua escarchado con chamoy y tajín; 15% texto a la izquierda (Compra una lleva la 2da AL 50%). Logo pequeño abajo a la derecha.",
+    "council_notes": {
+      "claude": "Adaptó el tono familiar y festivo para el público de El Centro, CA.",
+      "chatgpt": "Destacó el gancho numérico AL 50% en verde limón de alto contraste.",
+      "kimi": "Programó a las 3:30 PM, hora pico de calor y salida escolar en Imperial Valley.",
+      "manus": "Configuró publicación simultánea FB (251061751421746) + IG (@lamichoacana_plus_ca).",
+      "gemini": "Aplicó plantilla Split Vibrante 85/15 con logo discreto en esquina inferior derecha."
+    }
+  },
+  {
+    "id": "post_w3",
+    "client_id": "client_107607701479119",
+    "asset_id": "107607701479119",
+    "client_name": "El Patio Fit",
+    "category": "Fitness / Zumba y Entrenamiento",
+    "platforms": [
+      "facebook",
+      "instagram"
+    ],
+    "format": "Arte 85/15 (Minimalista Conceptual)",
+    "layout": "minimal_solid",
+    "status": "approved",
+    "scheduled_for": "2026-10-29 17:30",
+    "ai_lead": "gemini",
+    "ai_support": "chatgpt",
+    "topic": "Entrenamiento para Mujeres — Fuerza, Baile y Comunidad",
+    "headline_15": "TU FUERZA ES TU PODER",
+    "sub_15": "Entrenamiento para mujeres",
+    "offer_15": "CLASE MUESTRA",
+    "cta_15": "MANDA DM >",
+    "logo_pos": "bottom-right-small",
+    "hook": "💜💪 En El Patio Fit entrenamos juntas, bailamos con energía y celebramos tu fuerza todos los días.",
+    "copy": "💜💪 En El Patio Fit entrenamos juntas, bailamos con energía y transformamos tu salud en la mejor comunidad para mujeres en Mexicali.\n\n✨ Clases dinámicas llenas de ritmo y motivación\n✨ Quema calorías mientras te diviertes\n✨ Horarios accesibles y ambiente 100% seguro\n\n💃 ¡Aparta tu lugar hoy mismo enviándonos mensaje directo!\n\n#ElPatioFit #EntrenamientoParaMujeres #ZumbaMexicali #MujeresFuertes #FitnessMexicali",
+    "visual_prompt": "[85% IMAGEN / 15% TEXTO · Logo pequeño inf. derecha] Fondo sólido color lavanda (#9b7cb6), 85% gesto fotográfico de fuerza femenina con amplio espacio negativo; solo 5 palabras blancas (TU FUERZA ES TU PODER). Logo pequeño abajo a la derecha.",
+    "council_notes": {
+      "claude": "Cuidó el mensaje de empoderamiento y comunidad femenina.",
+      "chatgpt": "Añadió llamado a la acción directo a DM para reservar clase.",
+      "kimi": "Sincronizado con audiencia femenina en Mexicali.",
+      "manus": "Vinculado a FB (107607701479119) + IG (17841460198293390).",
+      "gemini": "Aplicó plantilla Minimalista Conceptual 85/15 con logo discreto abajo a la derecha."
+    }
+  },
+  {
+    "id": "post_w4",
+    "client_id": "client_113938840467669",
+    "asset_id": "113938840467669",
+    "client_name": "Puerto Nuevo Patio & Grill",
+    "category": "Restaurante / Grill & Bar",
+    "platforms": [
+      "facebook",
+      "instagram"
+    ],
+    "format": "Arte 85/15 (Hero Gastronómico)",
+    "layout": "hero_center",
+    "status": "approved",
+    "scheduled_for": "2026-10-29 19:00",
+    "ai_lead": "chatgpt",
+    "ai_support": "gemini",
+    "topic": "Cortes al Grill & Mariscos con Sabor y Tradición",
+    "headline_15": "SABOR AL GRILL",
+    "sub_15": "Mariscos · Cortes · Terraza",
+    "offer_15": "",
+    "cta_15": "Reserva tu mesa",
+    "logo_pos": "bottom-right-small",
+    "hook": "🥩🔥 El punto exacto en la parrilla y el mejor ambiente de terraza te esperan esta noche en Puerto Nuevo Patio & Grill.",
+    "copy": "🥩🔥 El punto exacto en la parrilla y el mejor ambiente de terraza te esperan esta noche en Puerto Nuevo Patio & Grill.\n\n🦞 Platillos del mar y cortes selectos recién salidos del grill\n🍸 Coctelería de autor y cervezas bien heladas\n🎶 Música y terraza ideal para compartir con amigos o en pareja\n\n🍹 Reserva tu mesa hoy mismo por mensaje directo.\n\n#PuertoNuevoPatioAndGrill #SaborConTradicion #GrillAndBar #CenaEnTerraza #MariscosYCortes",
+    "visual_prompt": "[85% IMAGEN / 15% TEXTO · Logo pequeño inf. derecha] 85% fotografía gastronómica en primer plano a 45° de corte jugoso al grill y mariscos sobre mesa de madera rústica; arriba título corto (SABOR AL GRILL). Logo pequeño y discreto en la esquina inferior derecha.",
+    "council_notes": {
+      "claude": "Enfatizó la experiencia gastronómica y sensorial en el copy.",
+      "chatgpt": "Mantuvo solo 6 palabras en el arte para que el platillo venda por sí solo.",
+      "kimi": "Recordó que hay 9 mensajes nuevos en bandeja listos para convertir en reservas.",
+      "manus": "Programado para horario nocturno de cenas (7:00 PM).",
+      "gemini": "Aplicó plantilla Hero Gastronómico 85/15 con logo pequeño abajo a la derecha."
+    }
+  },
+  {
+    "id": "post_w5",
+    "client_id": "client_895719200299185",
+    "asset_id": "895719200299185",
+    "client_name": "Ruta Ciudadana",
+    "category": "Cívico / Participación Ciudadana",
+    "platforms": [
+      "facebook",
+      "instagram"
+    ],
+    "format": "Arte 85/15 (Split Cívico) + Guía",
+    "layout": "split_clean",
+    "status": "review",
+    "scheduled_for": "2026-10-29 11:00",
+    "ai_lead": "claude",
+    "ai_support": "kimi",
+    "topic": "Ficha Ciudadana: Daños en el hogar por apagones en Mexicali",
+    "headline_15": "Apagones",
+    "sub_15": "Ordena tu reporte ciudadano",
+    "offer_15": "Paso 1 · 2 · 3",
+    "cta_15": "DESCARGA TU FICHA >",
+    "logo_pos": "bottom-right-small",
+    "hook": "⚡ ¿Sufriste daños en tus aparatos por variaciones de voltaje en Mexicali? Documenta tu caso correctamente.",
+    "copy": "⚡ ¿Sufriste daños en tus aparatos por variaciones de voltaje en Mexicali? Documenta tu caso paso a paso.\n\nEn Ruta Ciudadana pusimos a tu disposición un borrador ciudadano gratuito para que ordenes la información antes de acudir a la instancia correspondiente:\n\n1️⃣ Registra fecha, hora aproximada y duración en tu colonia.\n2️⃣ Anota tu número de reporte o folio oficial.\n3️⃣ Resguarda fotografías, recibos y dictamen técnico.\n\n📋 Solicita o descarga tu ficha ciudadana gratuita hoy mismo.\n\n#RutaCiudadana #Mexicali #QueMexicaliNoSeApague #DerechosCiudadanos #BajaCalifornia",
+    "visual_prompt": "[85% IMAGEN / 15% TEXTO · Logo pequeño inf. derecha] 85% fotografía realista de hogar en Mexicali durante apagón; 15% columna limpia a la izquierda con titular (Apagones / Paso 1 · 2 · 3). Logo de Ruta Ciudadana pequeño en la esquina inferior derecha.",
+    "council_notes": {
+      "claude": "Basado fielmente en tu archivo local mexicali-daños-en-el-hogar.txt.",
+      "chatgpt": "Simplificó el arte a 7 palabras clave para impacto inmediato en el feed.",
+      "kimi": "Cruzó datos con la causa activa #QueMexicaliNoSeApague.",
+      "manus": "Enlazado a Asset ID 895719200299185.",
+      "gemini": "Aplicó plantilla 85/15 con logo discreto en esquina inferior derecha."
+    }
+  },
+  {
+    "id": "post_w6",
+    "client_id": "client_1917558501848263",
+    "asset_id": "1917558501848263",
+    "client_name": "DDS Guillermo Marquez",
+    "category": "Salud / Clínica Dental Turística y Local",
+    "platforms": [
+      "facebook",
+      "instagram"
+    ],
+    "format": "Arte 85/15 Bilingüe (Split Clínico)",
+    "layout": "split_clean",
+    "status": "approved",
+    "scheduled_for": "2026-10-29 14:00",
+    "ai_lead": "claude",
+    "ai_support": "chatgpt",
+    "topic": "Dental Implants & Smile Restoration (EN/ES)",
+    "headline_15": "Implants",
+    "sub_15": "Smile with confidence",
+    "offer_15": "3D Digital | Garantía",
+    "cta_15": "BOOK ON WHATSAPP >",
+    "logo_pos": "bottom-right-small",
+    "hook": "🦷✨ Recover your natural smile in a state-of-the-art clinic with DDS Guillermo Márquez.",
+    "copy": "🦷✨ Recover your natural smile with world-class Dental Implants!\n\nAt DDS Guillermo Márquez Dental Clinic, we combine 3D digital diagnostics, premium materials, and bilingual personalized care:\n\n✅ Dental Implants & Full Mouth Rehabilitation\n✅ Veneers, Crowns & Aesthetic Dentistry\n✅ Trusted by patients from the US, Canada & Baja California\n\n📲 Send us a message on WhatsApp or DM to schedule your evaluation!\n\n#DDSGuillermoMarquez #DentalImplants #SmileMakeover #LosAlgodones #MexicaliDentist",
+    "visual_prompt": "[85% IMAGEN / 15% TEXTO · Logo pequeño inf. derecha] 85% fotografía luminosa de paciente sonriendo a la derecha; 15% texto limpio a la izquierda (Implants / Smile with confidence). Logo pequeño abajo a la derecha.",
+    "council_notes": {
+      "claude": "Redactó copy bilingüe de alta confianza para pacientes de EE.UU. y locales.",
+      "chatgpt": "Sintetizó el texto en imagen a solo 7 palabras clave.",
+      "kimi": "Alineado con búsquedas de implantes dentales en frontera.",
+      "manus": "Vinculado a FB (1917558501848263) + IG (17841448041450017).",
+      "gemini": "Aplicó plantilla Split Clínico 85/15 con logo discreto inferior derecho."
+    }
+  },
+  {
+    "id": "post_w7",
+    "client_id": "client_122097015428008177",
+    "asset_id": "122097015428008177",
+    "client_name": "Rosy Gutierrez Real Estate",
+    "category": "Inmobiliaria / Bienes Raíces",
+    "platforms": [
+      "facebook"
+    ],
+    "format": "Arte 85/15 (Split Inmobiliario)",
+    "layout": "split_clean",
+    "status": "review",
+    "scheduled_for": "2026-10-30 17:00",
+    "ai_lead": "chatgpt",
+    "ai_support": "claude",
+    "topic": "Compra o vende tu casa en Mexicali con crédito Infonavit o Bancario",
+    "headline_15": "Tu Casa",
+    "sub_15": "Estrena hoy en Mexicali",
+    "offer_15": "Infonavit | Bancario",
+    "cta_15": "AGENDA POR WHATSAPP >",
+    "logo_pos": "bottom-right-small",
+    "hook": "🏡🔑 ¿Buscas comprar o vender tu propiedad en Mexicali sin trámites complicados?",
+    "copy": "🏡🔑 ¿Buscas comprar o vender tu propiedad en Mexicali con total certeza jurídica y financiera?\n\nEn Rosy Gutierrez Real Estate te llevamos de la mano en todo el proceso:\n\n✅ Precalificación gratuita de crédito Infonavit, Cofinavit o Bancario\n✅ Catálogo de casas y terrenos en zonas de alta plusvalía\n✅ Promoción profesional para vender tu inmueble en menor tiempo\n\n📲 Escríbenos por WhatsApp o envía la palabra CASA por Inbox.\n\n#RosyGutierrezRealEstate #CasasEnMexicali #BienesRaicesMexicali #InfonavitMexicali",
+    "visual_prompt": "[85% IMAGEN / 15% TEXTO · Logo pequeño inf. derecha] 85% fotografía arquitectónica luminosa de residencia moderna en Mexicali a la derecha; 15% texto limpio a la izquierda (Tu Casa / Infonavit - Bancario). Logo pequeño en esquina inferior derecha.",
+    "council_notes": {
+      "claude": "Aportó certeza patrimonial en el copy.",
+      "chatgpt": "Creó gancho minimalista de 6 palabras en imagen + trigger CASA.",
+      "kimi": "Enfocado en créditos Infonavit y bancarios en Mexicali.",
+      "manus": "Listo para Asset ID 122097015428008177.",
+      "gemini": "Aplicó plantilla Split 85/15 con logo discreto abajo a la derecha."
+    }
+  },
+  {
+    "id": "post_w8",
+    "client_id": "client_2202146520020703",
+    "asset_id": "2202146520020703",
+    "client_name": "De La Peña Rivera",
+    "category": "Legal / Firma de Abogados",
+    "platforms": [
+      "facebook"
+    ],
+    "format": "Arte 85/15 (Minimalista Corporativo)",
+    "layout": "minimal_solid",
+    "status": "approved",
+    "scheduled_for": "2026-10-30 10:30",
+    "ai_lead": "claude",
+    "ai_support": "kimi",
+    "topic": "Blindaje Legal y Defensa Corporativa en Baja California",
+    "headline_15": "CERTEZA JURÍDICA PARA TU EMPRESA",
+    "sub_15": "Consultoría y Litigio Estratégico",
+    "offer_15": "",
+    "cta_15": "AGENDA CONSULTA >",
+    "logo_pos": "bottom-right-small",
+    "hook": "⚖️ Protege tus contratos, operaciones y patrimonio con asesoría legal preventiva.",
+    "copy": "⚖️ Protege tus contratos, operaciones y patrimonio con asesoría legal preventiva.\n\nEn De La Peña Rivera Abogados ofrecemos representación jurídica integral para empresas y particulares en Baja California:\n\n• Auditoría y redacción de contratos mercantiles y civiles\n• Estrategia laboral y corporativa\n• Litigio y defensa patrimonial con resultados comprobados\n\n📩 Agenda una consulta confidencial por mensaje directo.\n\n#DeLaPeñaRivera #AbogadosMexicali #DerechoCorporativo #CertezaJuridica",
+    "visual_prompt": "[85% IMAGEN / 15% TEXTO · Logo pequeño inf. derecha] 85% fotografía editorial sobria en tonos azul profundo y dorado (Manual DLPRA); 15% frase corta (CERTEZA JURÍDICA PARA TU EMPRESA). Logo DLPRA pequeño y discreto en la esquina inferior derecha.",
+    "council_notes": {
+      "claude": "Respetó el Manual de Marca DLPRA PDF y la sobriedad jurídica.",
+      "chatgpt": "Redujo el texto en imagen a solo 5 palabras de autoridad.",
+      "kimi": "Enfocado en sector empresarial de Mexicali.",
+      "manus": "Listo para Asset ID 2202146520020703.",
+      "gemini": "Aplicó plantilla Minimalista 85/15 con logo discreto abajo a la derecha."
+    }
+  }
+]

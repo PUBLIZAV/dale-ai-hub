@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DALE+ AI Command Center — Hub de Agentes & Meta Business Suite</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand-header">
+        <div class="brand-logo">D+</div>
+        <div class="brand-title">
+          <h1>DALE+ AI Hub</h1>
+          <p>48 Cuentas · 5 IAs · Agentes</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu" aria-label="Navegación Principal">
+        <button class="nav-btn active" data-tab="accounts">
+          <span>📱 Cuentas & Agentes</span>
+          <span class="nav-badge" id="nav-count-clients">48</span>
+        </button>
+        <button class="nav-btn" data-tab="studio">
+          <span>✨ Estudio Multi-IA</span>
+          <span class="nav-badge">5 IAs</span>
+        </button>
+        <button class="nav-btn" data-tab="queue">
+          <span>📅 Cola & Publicación</span>
+          <span class="nav-badge" id="nav-count-posts">6</span>
+        </button>
+        <button class="nav-btn" data-tab="ai-hub">
+          <span>🧠 Cerebro IA & Meta Apps</span>
+          <span class="nav-badge">Config</span>
+        </button>
+      </nav>
+
+      <div class="ai-status-box">
+        <div class="ai-status-title">Consejo de IAs Conectadas</div>
+        <div class="ai-pill-list">
+          <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-claude)"></span>Claude</span>
+          <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-chatgpt)"></span>ChatGPT</span>
+          <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-kimi)"></span>Kimi</span>
+          <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-manus)"></span>Manus</span>
+          <span class="ai-mini-pill"><span class="dot" style="background: var(--ai-gemini)"></span>Gemini</span>
+        </div>
+        <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">
+          Sincronizado con Firefox · Portfolio <code>764586389025151</code>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-info">
+          <h2 id="view-title">Cuentas de Facebook e Instagram & Agentes Especializados</h2>
+          <p id="view-subtitle">Sesión activa: Víctor Hugo Zavala Gallegos · 48 activos comerciales detectados en tu Firefox</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn" id="btn-open-keys">🔑 Configurar API Keys</button>
+          <a class="btn" href="https://business.facebook.com/latest/home?asset_id=251061751421746" target="_blank" rel="noopener">
+            🌐 Abrir Meta Business Suite
+          </a>
+          <button class="btn btn-primary" id="btn-quick-create">⚡ Crear Contenido con IA</button>
+        </div>
+      </header>
+
+      <!-- KPI Summary -->
+      <section class="kpi-grid" aria-label="Métricas del Portafolio">
+        <div class="kpi-card">
+          <span class="kpi-label">Cuentas Administradas (FB)</span>
+          <span class="kpi-value" id="kpi-total-clients">48</span>
+          <span class="kpi-sub">Extraídas de tu sesión de Firefox</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Cuentas con Instagram / Activos</span>
+          <span class="kpi-value" id="kpi-ig-clients">14</span>
+          <span class="kpi-sub">Vinculadas en Business Suite + IG</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Mensajes sin Leer en Bandeja</span>
+          <span class="kpi-value" style="color: var(--accent-amber);" id="kpi-unseen-msgs">46</span>
+          <span class="kpi-sub">El Observador (16), Puerto Nuevo (9), Ruta (7)...</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Agentes Especializados</span>
+          <span class="kpi-value" style="color: var(--accent-emerald);">48 Activos</span>
+          <span class="kpi-sub">Claude · ChatGPT · Kimi · Manus · Gemini</span>
+        </div>
+      </section>
+
+      <!-- VIEW 1: ACCOUNTS & AGENTS -->
+      <section id="tab-accounts" class="tab-view">
+        <div class="filter-bar">
+          <div class="filter-pills" id="category-filters">
+            <button class="chip active" data-filter="all">Todas (48)</button>
+            <button class="chip" data-filter="ig">📸 Con Instagram</button>
+            <button class="chip" data-filter="msgs">💬 Con Mensajes Nuevos</button>
+            <button class="chip" data-filter="Gastronomía">🍔 Gastronomía / Grill</button>
+            <button class="chip" data-filter="Salud">🦷 Salud & Dental</button>
+            <button class="chip" data-filter="Inmobiliaria">🏡 Inmobiliaria & Construcción</button>
+            <button class="chip" data-filter="Legal">⚖️ Legal & Cívico</button>
+            <button class="chip" data-filter="Moda">👗 Moda & Boutique</button>
+            <button class="chip" data-filter="Fitness">💪 Fitness</button>
+            <button class="chip" data-filter="Agencia">🚀 Agencia & Medios</button>
+          </div>
+          <input type="search" id="client-search" class="search-input" placeholder="Buscar cliente, giro o Asset ID..." />
+        </div>
+
+        <div class="clients-grid" id="clients-grid" style="margin-top: 16px;"></div>
+      </section>
+
+      <!-- VIEW 2: MULTI-AI STUDIO -->
+      <section id="tab-studio" class="tab-view hidden">
+        <div class="studio-grid">
+          <div class="panel">
+            <h3>🤖 Orquestador de Contenido Multi-Agente</h3>
+            <p style="font-size: 13px; color: var(--text-secondary);">
+              Cada cliente tiene su propio agente con memoria de marca, tono de voz, público en Mexicali / Imperial Valley / BC y asignación de IA líder.
+            </p>
+
+            <div class="form-group">
+              <label for="studio-client-select">1. Selecciona el Cliente / Cuenta de Destino</label>
+              <select id="studio-client-select" class="form-control"></select>
+            </div>
+
+            <div id="studio-agent-dna" class="agent-strip"></div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div class="form-group">
+                <label for="studio-ai-select">2. Motor de IA / Modo de Trabajo</label>
+                <select id="studio-ai-select" class="form-control">
+                  <option value="council">🌟 Consejo de las 5 IAs (Claude + ChatGPT + Kimi + Manus + Gemini)</option>
+                  <option value="claude">🟠 Claude (Storytelling, Legal, Salud & Cívico)</option>
+                  <option value="chatgpt">🟢 ChatGPT (Ventas Directas, Promos & Meta Ads)</option>
+                  <option value="kimi">🟣 Kimi (Investigación Local, Datos & Noticias)</option>
+                  <option value="manus">🟡 Manus (Ejecución Autónoma & Secuencias)</option>
+                  <option value="gemini">🔵 Gemini (Guion de Reels, Dirección Visual & Multimodal)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="studio-format-select">3. Formato de Publicación</label>
+                <select id="studio-format-select" class="form-control">
+                  <option value="Reel + Post">🎬 Reel Vertical (9:16) + Copy FB/IG</option>
+                  <option value="Carrusel Educativo">📑 Carrusel Educativo (4:5)</option>
+                  <option value="Post de Venta Directa">🔥 Post de Venta Directa + CTA</option>
+                  <option value="Campaña Meta Ads">📣 Anuncio Meta Ads (Alto CTR)</option>
+                  <option value="Historia Interactiva">📲 Secuencia de 3 Historias</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="studio-topic-input">4. Tema, Promoción o Instrucción para el Agente (Opcional)</label>
+              <textarea id="studio-topic-input" class="form-control" placeholder="Ej: Promoción 2x1 en mangonadas hoy en El Centro CA, o Guía sobre apagones en Mexicali, o Casa en venta con crédito Infonavit... (Si lo dejas vacío, el agente elegirá un pilar estratégico automáticamente)"></textarea>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <button class="btn btn-primary" id="btn-generate-post">✨ Generar Publicación con Agente</button>
+              <button class="btn btn-emerald" id="btn-generate-week">📅 Generar Parrilla Semanal (5 Posts)</button>
+              <button class="btn" id="btn-edit-current-agent">⚙️ Editar ADN de este Agente</button>
+            </div>
+          </div>
+
+          <!-- Live Preview Panel -->
+          <div class="panel" id="studio-preview-panel">
+            <h3>👁️ Vista Previa & Aportación de las 5 IAs</h3>
+            <div id="studio-preview-content" style="display: flex; flex-direction: column; gap: 14px;">
+              <p style="color: var(--text-secondary); font-size: 13.5px;">
+                Selecciona un cliente y haz clic en <strong>"Generar Publicación con Agente"</strong> para ver la propuesta completa de copy, guion visual y desglose del Consejo de las 5 IAs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: QUEUE & PUBLISHING KANBAN -->
+      <section id="tab-queue" class="tab-view hidden">
+        <div class="filter-bar" style="margin-bottom: 16px;">
+          <div>
+            <strong>Flujo de Aprobación y Publicación Directa en Meta Business Suite</strong>
+            <p style="font-size: 12px; color: var(--text-secondary);">
+              Revisa los contenidos creados por tus agentes, aprueba en 1 clic o abre el compositor directo de Facebook/Instagram con el copy copiado.
+            </p>
+          </div>
+          <select id="queue-client-filter" class="form-control" style="min-width: 240px;">
+            <option value="all">Todos los Clientes (48)</option>
+          </select>
+        </div>
+
+        <div class="kanban-board" id="kanban-board"></div>
+      </section>
+
+      <!-- VIEW 4: AI BRAIN & META APPS -->
+      <section id="tab-ai-hub" class="tab-view hidden">
+        <div class="studio-grid">
+          <div class="panel">
+            <h3>🧠 Arquitectura de tus 5 IAs</h3>
+            <p style="font-size: 13px; color: var(--text-secondary);">
+              Cada IA tiene un rol especializado dentro de tu agencia y colabora con los 48 agentes de clientes.
+            </p>
+            <div id="ai-engines-list" style="display: flex; flex-direction: column; gap: 12px;"></div>
+          </div>
+
+          <div class="panel">
+            <h3>🌐 Apps de Meta for Developers & Business Portfolio (Firefox)</h3>
+            <p style="font-size: 13px; color: var(--text-secondary);">
+              Detectamos estas aplicaciones vinculadas a tu Business Manager (<code>764586389025151</code>) y cuenta publicitaria (<code>345341053347300</code>):
+            </p>
+            <div id="meta-apps-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL 1: EDIT CLIENT AGENT DNA -->
+  <dialog id="modal-agent" class="modal" closedby="any">
+    <form method="dialog" id="form-agent" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 id="modal-agent-title">Configurar Agente Especializado</h3>
+        <button type="button" class="btn btn-sm" id="btn-close-agent-modal">✕</button>
+      </div>
+      <input type="hidden" id="edit-agent-client-id" />
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div class="form-group">
+          <label for="edit-agent-primary-ai">IA Principal del Agente</label>
+          <select id="edit-agent-primary-ai" class="form-control">
+            <option value="claude">Claude (Anthropic)</option>
+            <option value="chatgpt">ChatGPT (OpenAI)</option>
+            <option value="kimi">Kimi (Moonshot AI)</option>
+            <option value="manus">Manus (Autónomo)</option>
+            <option value="gemini">Gemini (Google Core)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="edit-agent-secondary-ai">IA de Apoyo / Co-Piloto</label>
+          <select id="edit-agent-secondary-ai" class="form-control">
+            <option value="gemini">Gemini (Google Core)</option>
+            <option value="claude">Claude (Anthropic)</option>
+            <option value="chatgpt">ChatGPT (OpenAI)</option>
+            <option value="kimi">Kimi (Moonshot AI)</option>
+            <option value="manus">Manus (Autónomo)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-agent-voice">Tono de Voz y Personalidad de Marca</label>
+        <input type="text" id="edit-agent-voice" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="edit-agent-audience">Público Objetivo y Plaza</label>
+        <input type="text" id="edit-agent-audience" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="edit-agent-pillars">Pilares de Contenido (separados por coma)</label>
+        <input type="text" id="edit-agent-pillars" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="edit-agent-cta">Llamado a la Acción (CTA) por Defecto</label>
+        <input type="text" id="edit-agent-cta" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="edit-agent-prompt">System Prompt del Agente (Instrucción Maestra)</label>
+        <textarea id="edit-agent-prompt" class="form-control"></textarea>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px;">
+        <button type="button" class="btn" id="btn-cancel-agent">Cancelar</button>
+        <button type="submit" class="btn btn-primary">💾 Guardar Especialización del Agente</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL 2: API KEYS CONFIGURATION -->
+  <dialog id="modal-keys" class="modal" closedby="any">
+    <form method="dialog" id="form-keys" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3>🔑 Conectar API Keys (Claude, ChatGPT, Kimi, Manus, Gemini & Meta)</h3>
+        <button type="button" class="btn btn-sm" id="btn-close-keys-modal">✕</button>
+      </div>
+      <p style="font-size: 12.5px; color: var(--text-secondary);">
+        El MVP ya incluye generación inteligente pre-entrenada para tus 48 cuentas. Si agregas tus llaves API aquí, el servidor hará llamadas en vivo a cada modelo y a Meta Graph API.
+      </p>
+
+      <div class="form-group">
+        <label for="key-claude">Claude API Key (<code>ANTHROPIC_API_KEY</code>)</label>
+        <input type="password" id="key-claude" class="form-control" placeholder="sk-ant-api03-..." />
+      </div>
+      <div class="form-group">
+        <label for="key-openai">ChatGPT / OpenAI API Key (<code>OPENAI_API_KEY</code>)</label>
+        <input type="password" id="key-openai" class="form-control" placeholder="sk-proj-..." />
+      </div>
+      <div class="form-group">
+        <label for="key-kimi">Kimi / Moonshot AI Key (<code>MOONSHOT_API_KEY</code>)</label>
+        <input type="password" id="key-kimi" class="form-control" placeholder="sk-..." />
+      </div>
+      <div class="form-group">
+        <label for="key-gemini">Google Gemini API Key (<code>GEMINI_API_KEY</code>)</label>
+        <input type="password" id="key-gemini" class="form-control" placeholder="AIzaSy..." />
+      </div>
+      <div class="form-group">
+        <label for="key-manus">Manus API / Webhook URL (<code>MANUS_API_KEY</code>)</label>
+        <input type="password" id="key-manus" class="form-control" placeholder="manus-..." />
+      </div>
+      <div class="form-group">
+        <label for="key-meta">Meta Graph API System User / Page Token (<code>META_ACCESS_TOKEN</code>)</label>
+        <input type="password" id="key-meta" class="form-control" placeholder="EAAN..." />
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px;">
+        <button type="button" class="btn" id="btn-cancel-keys">Cerrar</button>
+        <button type="submit" class="btn btn-primary">💾 Guardar Credenciales Localmente</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="data_bundle.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Secretos y llaves API locales (nunca subir a GitHub)
+data/secrets.json
+.env
+*.pyc
+__pycache__/
+.DS_Store
