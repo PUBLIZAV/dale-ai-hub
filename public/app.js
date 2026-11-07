@@ -701,4 +701,95 @@ document.addEventListener("DOMContentLoaded", () => {
       showToast("🔑 API Keys guardadas en el servidor local");
     }
   });
+
+  // --- Integración con ReelStudio IA V2 (http://127.0.0.1:8766) ---
+  const RS_BASE = "http://127.0.0.1:8766";
+  const rsBadge = document.getElementById("rs-health-badge");
+  const rsForm = document.getElementById("rs-job-form");
+  const rsStatus = document.getElementById("rs-job-status");
+  const rsOutputs = document.getElementById("rs-job-outputs");
+  let activeRsJobId = null;
+
+  async function checkReelStudioHealth() {
+    if (!rsBadge) return;
+    try {
+      const r = await fetch(`${RS_BASE}/health`);
+      if (r.ok) {
+        const h = await r.json();
+        rsBadge.textContent = `🟢 ReelStudio V${h.version} Conectado · FFmpeg ${h.ffmpeg_available ? "OK" : "No"} · 48 Presets`;
+      }
+    } catch (_) {
+      rsBadge.textContent = "🟡 ReelStudio Local (127.0.0.1:8766)";
+    }
+  }
+  checkReelStudioHealth();
+
+  async function pollReelStudioJob(jobId) {
+    try {
+      const r = await fetch(`${RS_BASE}/jobs/${jobId}`);
+      const j = await r.json();
+      rsStatus.innerHTML = `⏳ <strong>ReelStudio IA Job <code>${escapeHtml(jobId.slice(0, 8))}</code>:</strong> Estado <code>${escapeHtml(j.status)}</code> · Progreso: <strong>${j.progress || 0}%</strong> ${j.error ? "· ❌ " + escapeHtml(j.error) : ""}`;
+      if (j.status === "ready_for_review") {
+        const outRes = await fetch(`${RS_BASE}/jobs/${jobId}/outputs`);
+        const outData = await outRes.json();
+        const files = outData.files || [];
+        const v916 = files.find(f => f.name.endsWith("9x16.mp4")) || files[0];
+        rsOutputs.innerHTML = `
+          ${v916 ? `<video controls style="max-height:340px; border-radius:10px; border:1px solid rgba(255,255,255,0.15);" src="${RS_BASE}${escapeHtml(v916.url)}"></video>` : ""}
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <strong>✅ Archivos renderizados por FFmpeg (1080p):</strong>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              ${files.map(f => `<a class="btn btn-sm btn-emerald" href="${RS_BASE}${escapeHtml(f.url)}" download>⬇️ ${escapeHtml(f.name)}</a>`).join("")}
+            </div>
+            <div style="display:flex; gap:8px; margin-top:4px;">
+              <button type="button" class="btn btn-sm" id="btn-rs-revise">🔄 Pedir Revisión de Estilo (v${(j.version || 1) + 1})</button>
+            </div>
+          </div>
+        `;
+        const revBtn = document.getElementById("btn-rs-revise");
+        if (revBtn) {
+          revBtn.onclick = async () => {
+            const newStyle = document.getElementById("rs-style").value || "dinamico";
+            rsOutputs.innerHTML = "";
+            await fetch(`${RS_BASE}/jobs/${jobId}/revisions`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ style: newStyle, notes: "Ajuste automático desde DALE+ Command Center" })
+            });
+            pollReelStudioJob(jobId);
+          };
+        }
+        showToast("🎬 ReelStudio IA terminó los 3 videos (9:16, 4:5, 1:1)");
+      } else if (j.status === "queued" || j.status === "processing") {
+        setTimeout(() => pollReelStudioJob(jobId), 1500);
+      }
+    } catch (err) {
+      rsStatus.textContent = "Error consultando ReelStudio IA: " + err.message;
+    }
+  }
+
+  if (rsForm) {
+    rsForm.addEventListener("submit", async e => {
+      e.preventDefault();
+      const fd = new FormData(rsForm);
+      const client = state.clients.find(c => c.id === state.activeStudioClientId) || {};
+      const safeClientId = (client.id || "general").replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 60);
+      const post = state.lastGeneratedPost || {};
+      fd.set("client_id", safeClientId);
+      fd.set("campaign_id", (post.id || "camp_dale").replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 60));
+      fd.set("brief", post.visual_prompt || post.topic || "Reel 85/15 generado desde DALE+ AI Command Center");
+
+      rsStatus.textContent = "🚀 Enviando clips y preset del cliente a ReelStudio IA V2 (FFmpeg)...";
+      rsOutputs.innerHTML = "";
+      try {
+        const r = await fetch(`${RS_BASE}/jobs`, { method: "POST", body: fd });
+        const j = await r.json();
+        if (!r.ok) throw new Error(j.detail || JSON.stringify(j));
+        activeRsJobId = j.job_id;
+        pollReelStudioJob(activeRsJobId);
+      } catch (err) {
+        rsStatus.textContent = "❌ Error al enviar a ReelStudio IA (127.0.0.1:8766): " + err.message;
+      }
+    });
+  }
 });

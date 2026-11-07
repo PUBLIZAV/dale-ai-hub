@@ -1,0 +1,22 @@
+{
+  "client_id": "client_113938840467669",
+  "slug": "puerto-nuevo-patio-grill",
+  "client_name": "Puerto Nuevo Patio & Grill",
+  "asset_id": "113938840467669",
+  "logo_position": "bottom-right-small",
+  "logo_scale": 0.06,
+  "design_rule": "85_image_15_text",
+  "colors": {
+    "primary": "#ea580c",
+    "accent": "#38bdf8",
+    "bg": "#ffffff"
+  },
+  "subtitles": {
+    "font": "Inter-Bold",
+    "size": 42,
+    "color": "#FFFFFF",
+    "bg": "rgba(0,0,0,0.65)",
+    "safe_margin_bottom_px": 260
+  },
+  "default_style": "comercial"
+}

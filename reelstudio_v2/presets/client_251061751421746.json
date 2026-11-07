@@ -1,0 +1,22 @@
+{
+  "client_id": "client_251061751421746",
+  "slug": "la-michoacana-plus-el-centro-ca-oficial",
+  "client_name": "La Michoacana Plus El Centro CA. Oficial",
+  "asset_id": "251061751421746",
+  "logo_position": "bottom-right-small",
+  "logo_scale": 0.06,
+  "design_rule": "85_image_15_text",
+  "colors": {
+    "primary": "#ec4899",
+    "accent": "#38bdf8",
+    "bg": "#ffffff"
+  },
+  "subtitles": {
+    "font": "Inter-Bold",
+    "size": 42,
+    "color": "#FFFFFF",
+    "bg": "rgba(0,0,0,0.65)",
+    "safe_margin_bottom_px": 260
+  },
+  "default_style": "comercial"
+}

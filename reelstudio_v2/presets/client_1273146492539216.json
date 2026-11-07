@@ -1,0 +1,22 @@
+{
+  "client_id": "client_1273146492539216",
+  "slug": "dale-mas-marketing-inteligente",
+  "client_name": "DALE MAS Marketing Inteligente",
+  "asset_id": "1273146492539216",
+  "logo_position": "bottom-right-small",
+  "logo_scale": 0.06,
+  "design_rule": "85_image_15_text",
+  "colors": {
+    "primary": "#4f46e5",
+    "accent": "#38bdf8",
+    "bg": "#ffffff"
+  },
+  "subtitles": {
+    "font": "Inter-Bold",
+    "size": 42,
+    "color": "#FFFFFF",
+    "bg": "rgba(0,0,0,0.65)",
+    "safe_margin_bottom_px": 260
+  },
+  "default_style": "comercial"
+}

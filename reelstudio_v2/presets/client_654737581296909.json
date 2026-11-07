@@ -1,0 +1,22 @@
+{
+  "client_id": "client_654737581296909",
+  "slug": "coricos-la-nueva-fama",
+  "client_name": "Coricos La Nueva Fama",
+  "asset_id": "654737581296909",
+  "logo_position": "bottom-right-small",
+  "logo_scale": 0.06,
+  "design_rule": "85_image_15_text",
+  "colors": {
+    "primary": "#dc2626",
+    "accent": "#38bdf8",
+    "bg": "#ffffff"
+  },
+  "subtitles": {
+    "font": "Inter-Bold",
+    "size": 42,
+    "color": "#FFFFFF",
+    "bg": "rgba(0,0,0,0.65)",
+    "safe_margin_bottom_px": 260
+  },
+  "default_style": "comercial"
+}

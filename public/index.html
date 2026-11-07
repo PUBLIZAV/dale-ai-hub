@@ -172,10 +172,65 @@
             <h3>👁️ Vista Previa, Pauta Pagada (Muse) & Aportación de las 6 IAs</h3>
             <div id="studio-preview-content" style="display: flex; flex-direction: column; gap: 14px;">
               <p style="color: var(--text-secondary); font-size: 13.5px;">
-                Selecciona un cliente y haz clic en <strong>"Generar Publicación con Agente"</strong> para ver la propuesta completa de copy, guion visual y desglose del Consejo de las 5 IAs.
+                Selecciona un cliente y haz clic en <strong>"Generar Publicación con Agente"</strong> para ver la propuesta completa de copy, guion visual y desglose del Consejo de las 6 IAs.
               </p>
             </div>
           </div>
+        </div>
+
+        <!-- Integrated ReelStudio IA V2 Panel -->
+        <div class="panel" style="margin-top: 20px; border-color: rgba(139, 92, 246, 0.45);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h3>🎬 ReelStudio IA V2 — Editor Automático en tu Mac (Claude + ChatGPT + FFmpeg)</h3>
+              <p style="font-size: 12.5px; color: var(--text-secondary);">
+                Conectado al servicio local <code>http://127.0.0.1:8766</code> · Recibe clips/fotos del cliente activo y exporta automáticamente <strong>9:16 (Reels), 4:5 (Feed) y 1:1 (Cuadrado)</strong> sin salir de tu Mac.
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="tag" id="rs-health-badge" style="background: rgba(16, 185, 129, 0.16); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+                🟢 ReelStudio V2 Activo · 48 Presets
+              </span>
+              <a class="btn btn-sm" href="http://127.0.0.1:8766" target="_blank" rel="noopener">↗ Abrir ReelStudio Standalone</a>
+            </div>
+          </div>
+
+          <form id="rs-job-form" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; align-items: end; margin-top: 6px;">
+            <div class="form-group">
+              <label for="rs-files">1. Videos o Fotos a Unir (MP4/MOV/JPG/PNG)</label>
+              <input type="file" id="rs-files" name="files" class="form-control" accept="video/*,image/*,audio/*" multiple required />
+            </div>
+            <div class="form-group">
+              <label for="rs-style">2. Estilo de Edición / Transición (EDL)</label>
+              <select id="rs-style" name="style" class="form-control">
+                <option value="comercial">🔥 Comercial (Transición rápida 0.3s)</option>
+                <option value="dinamico">⚡ Dinámico / Reels (Corte ágil 0.22s)</option>
+                <option value="corporativo">🏛️ Corporativo / Salud / Legal (0.35s)</option>
+                <option value="cinematografico">🎬 Cinematográfico (Disolvencia suave 0.55s)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="rs-duration">3. Duración Máxima (seg)</label>
+              <input type="number" id="rs-duration" name="duration_seconds" class="form-control" min="3" max="180" value="20" />
+            </div>
+            <div class="form-group">
+              <label for="rs-outputs">4. Formatos de Salida</label>
+              <select id="rs-outputs" name="outputs" class="form-control">
+                <option value="9:16,4:5,1:1">📦 Los 3 Formatos (9:16 + 4:5 + 1:1)</option>
+                <option value="9:16">📱 Solo Reel / Story (9:16 - 1080×1920)</option>
+                <option value="4:5">🖼️ Solo Feed Vertical (4:5 - 1080×1350)</option>
+                <option value="1:1">⏹️ Solo Cuadrado (1:1 - 1080×1080)</option>
+              </select>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary" id="btn-rs-submit" style="width: 100%; justify-content: center;">
+                🎬 Renderizar Video con ReelStudio IA
+              </button>
+            </div>
+          </form>
+
+          <div id="rs-job-status" style="font-size: 13px; color: var(--text-secondary);"></div>
+          <div id="rs-job-outputs" style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start;"></div>
         </div>
       </section>
 
